@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cpp.min.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>reveal.js</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/kanagawaLight.css">
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/kanagawaLight.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section><h3>Making A C++ Matrix implementation</h3> </section>
+				<section>
+         <h2>Hello World</h2>
+            <p>Old bad example</p>
+            <p> </p>
+            <p> </p>
+            <p> </p>
+          <pre><code class="language-cpp" data-ce>
+#include &lt;iostream&gt;
+int main() {
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    return 0;
+}
+          </code></pre>
+      </section>
+          <section>
+            <h2>C++ Example</h2>
+            <p>Better C++23</p>
+            <include src="/cpp/cpp23print.cpp"></include>
+      </section>
+			</div>
+		</div>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script type="module">
+      import CompilerExplorer from '../reveal-ce/index.js';
+
+      // Enhanced highlighting function
+      function highlightAllCode() {
+        const codeBlocks = document.querySelectorAll('pre code');
+        codeBlocks.forEach(block => {
+          // Remove any existing highlighting
+          block.className = block.className.replace(/\bhljs\b/g, '').replace(/\bhljs-[^\s]*/g, '');
+
+          // Ensure the language class is present
+          if (!block.className.includes('language-')) {
+            block.classList.add('language-cpp');
+          }
+
+          // Apply highlighting
+          if (window.hljs) {
+            hljs.highlightElement(block);
+          }
+        });
+      }
+
+      // Process includes and ensure proper highlighting
+      async function processIncludes() {
+        const includes = document.querySelectorAll("include[src]");
+        await Promise.all(Array.from(includes).map(async (include) => {
+          const src = include.getAttribute("src");
+          try {
+            const response = await fetch(src);
+            if (!response.ok) throw new Error(`Failed to fetch ${src}`);
+            const text = await response.text();
+
+            // Properly escape HTML entities
+            const escaped = text
+              .replace(/&/g, "&amp;")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;")
+              .replace(/"/g, "&quot;")
+              .replace(/'/g, "&#39;");
+
+            // Replace the existing code block creation section with this:
+            const pre = document.createElement("pre");
+            const code = document.createElement("code");
+            code.className = "language-cpp";
+
+            // Forward all attributes from include to code element, except 'src'
+            Array.from(include.attributes).forEach(attr => {
+              if (attr.name !== 'src') {
+                code.setAttribute(attr.name, attr.value);
+              }
+            });
+
+            // Ensure data-ce is set (either from include or default)
+            if (!code.hasAttribute('data-ce')) {
+              code.setAttribute("data-ce", "");
+            }
+
+
+            code.textContent = text;
+            pre.appendChild(code);
+            include.replaceWith(pre);
+          } catch (err) {
+            console.error(`Failed to load include: ${src}`, err);
+            const errorPre = document.createElement("pre");
+            const errorCode = document.createElement("code");
+            errorCode.textContent = `// Failed to load ${src}`;
+            errorPre.appendChild(errorCode);
+            include.replaceWith(errorPre);
+          }
+        }));
+      }
+
+      // Wait for highlight.js to be fully loaded
+      function waitForHighlightJS() {
+        return new Promise((resolve) => {
+          if (window.hljs && window.hljs.highlightElement) {
+            resolve();
+          } else {
+            const checkInterval = setInterval(() => {
+              if (window.hljs && window.hljs.highlightElement) {
+                clearInterval(checkInterval);
+                resolve();
+              }
+            }, 50);
+          }
+        });
+      }
+
+      // Main initialization
+      async function init() {
+        try {
+          // Wait for highlight.js to be ready
+          await waitForHighlightJS();
+
+          // Process any includes first
+          await processIncludes();
+
+          // Initialize Reveal.js
+          await Reveal.initialize({
+            ce: {
+              defaultCompiler: 'g151',
+              defaultCompilerOptions: '-O3 -std=c++26 -Wpedantic -Werror -Wextra -Wall',
+            },
+            plugins: [RevealMarkdown, RevealNotes, CompilerExplorer, RevealHighlight],
+            ready: () => {
+              console.log("Reveal.js ready, applying syntax highlighting...");
+              // Apply highlighting after everything is ready
+              setTimeout(() => {
+                highlightAllCode();
+              }, 100);
+            }
+          });
+
+          // Set up event listeners for re-highlighting
+          Reveal.on('slidechanged', () => {
+            setTimeout(highlightAllCode, 50);
+          });
+
+          Reveal.on('fragmentshown', () => {
+            setTimeout(highlightAllCode, 50);
+          });
+
+          Reveal.on('fragmenthidden', () => {
+            setTimeout(highlightAllCode, 50);
+          });
+
+          // Listen for reveal-ce events
+          document.addEventListener('reveal-ce-ready', () => {
+            setTimeout(highlightAllCode, 100);
+          });
+
+          // Set up mutation observer for dynamic content
+          const observer = new MutationObserver((mutations) => {
+            let needsRehighlight = false;
+            mutations.forEach((mutation) => {
+              if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach((node) => {
+                  if (node.nodeType === Node.ELEMENT_NODE) {
+                    if (node.tagName === 'CODE' || node.querySelector && node.querySelector('code')) {
+                      needsRehighlight = true;
+                    }
+                  }
+                });
+              }
+            });
+
+            if (needsRehighlight) {
+              setTimeout(highlightAllCode, 100);
+            }
+          });
+
+          // Observe the slides container
+          const slidesContainer = document.querySelector('.slides');
+          if (slidesContainer) {
+            observer.observe(slidesContainer, {
+              childList: true,
+              subtree: true
+            });
+          }
+
+          console.log("Initialization complete");
+
+        } catch (error) {
+          console.error("Error during initialization:", error);
+          // Fallback initialization
+          Reveal.initialize({
+            plugins: [RevealMarkdown, RevealNotes, RevealHighlight],
+          });
+        }
+      }
+
+      // Start initialization when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    </script>
+	</body>
+</html>
