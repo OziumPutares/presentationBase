@@ -1,0 +1,3 @@
+[submodule "reveal-ce"]
+	path = reveal-ce
+	url = https://github.com/mattgodbolt/reveal-ce.git
