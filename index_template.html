@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/kanagawaLight.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/kanagawaLight.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section><h3>Making A C++ Matrix implementation</h3> </section>
+
+				<section>
+         <h2>Hello World</h2>
+          <section>
+            <p>Old bad example</p>
+            <p> </p>
+            <p> </p>
+            <p> </p>
+          <pre><code data-ce>
+#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    return 0;
+}
+          </code></pre>
+      </section>
+          <section>
+            <h2>C++ Example</h2>
+            <p>Better C++23</p>
+          <pre><code data-ce>
+#include &lt;print&gt;
+
+int main() {
+    std::print("{}", "Hello World!");
+}
+          </code></pre>
+      </section>
+        </section>
+        <section>
+          <h2>A simple Vector implementation</h2>
+          <pre><code data-ce>
+
+#include &lt;array&gt;
+#include &lt;cstddef&gt;
+template &lt;typename T, std::size_t dimension&gt;
+using Vector = std::array&lt;T, dimension&gt;;
+int main() {
+  Vector&lt;int, 12&gt; s{1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1};
+  return s[0];
+}
+
+</code> </pre>
+        </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+    <script type="module">
+      import Zoom from './plugin/zoom/zoom.esm.js';
+      import Reveal from './dist/reveal.esm.js';
+      import Highlight from './plugin/highlight/highlight.esm.js';
+      import CompilerExplorer from '../reveal-ce/index.js';
+
+      Reveal.initialize({
+        ce: {
+            defaultCompiler: 'g151',
+            defaultCompilerOptions: '-O3 -std=c++26 -Wpedantic -Werror -Wextra -Wall -Wall -Wextra',
+        },
+
+        // CompilerExplorer must be before Highlight in the plugins list
+        plugins: [ RevealMarkdown, CompilerExplorer, RevealHighlight, RevealNotes  ],
+      });
+    </script>
+	</body>
+</html>

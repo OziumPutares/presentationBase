@@ -1,0 +1,225 @@
+/*
+ * Kanagawa Dark theme for Highlight.js
+ * Based on kanagawa.nvim color scheme
+ * Author: Generated for Kanagawa theme
+ */
+
+.hljs {
+  color: #dcd7ba;
+  background: #16161d;
+}
+
+.hljs-subst {
+  color: #dcd7ba;
+}
+
+.hljs-comment {
+  color: #727169;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-meta .hljs-keyword,
+.hljs-doctag,
+.hljs-name {
+  color: #957fb8;
+  font-weight: bold;
+}
+
+.hljs-type {
+  color: #7aa89f;
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: #98bb6c;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #e6c384;
+  font-weight: bold;
+}
+
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-operator,
+.hljs-selector-pseudo {
+  color: #7e9cd8;
+}
+
+.hljs-literal {
+  color: #ffa066;
+}
+
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+  color: #7aa89f;
+}
+
+.hljs-meta {
+  color: #c0a36e;
+}
+
+.hljs-meta .hljs-string {
+  color: #98bb6c;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* Language-specific highlighting */
+.hljs-function .hljs-title {
+  color: #7fb4ca;
+}
+
+.hljs-class .hljs-title {
+  color: #e6c384;
+}
+
+.hljs-property {
+  color: #7e9cd8;
+}
+
+.hljs-params {
+  color: #dcd7ba;
+}
+
+.hljs-tag {
+  color: #957fb8;
+}
+
+.hljs-tag .hljs-name {
+  color: #957fb8;
+}
+
+.hljs-tag .hljs-attr {
+  color: #7e9cd8;
+}
+
+.hljs-tag .hljs-string {
+  color: #98bb6c;
+}
+
+/* JSON */
+.hljs-attr {
+  color: #7e9cd8;
+}
+
+/* CSS */
+.hljs-selector-class {
+  color: #e6c384;
+}
+
+.hljs-selector-id {
+  color: #ffa066;
+}
+
+.hljs-built_in {
+  color: #957fb8;
+}
+
+/* JavaScript/TypeScript */
+.hljs-keyword.hljs-function {
+  color: #957fb8;
+}
+
+.hljs-keyword.hljs-var,
+.hljs-keyword.hljs-let,
+.hljs-keyword.hljs-const {
+  color: #957fb8;
+}
+
+/* Python */
+.hljs-decorator {
+  color: #c0a36e;
+}
+
+.hljs-built_in.hljs-self {
+  color: #d27e99;
+}
+
+/* Shell/Bash */
+.hljs-variable {
+  color: #7e9cd8;
+}
+
+/* Markdown */
+.hljs-section {
+  color: #e6c384;
+  font-weight: bold;
+}
+
+.hljs-bullet {
+  color: #7aa89f;
+}
+
+.hljs-link {
+  color: #7e9cd8;
+}
+
+/* Diff */
+.hljs-addition {
+  color: #98bb6c;
+  background-color: rgba(152, 187, 108, 0.1);
+}
+
+.hljs-deletion {
+  color: #c34043;
+  background-color: rgba(195, 64, 67, 0.1);
+}
+
+/* Special tokens */
+.hljs-doctag {
+  color: #c0a36e;
+  font-weight: bold;
+}
+
+.hljs-formula {
+  color: #d27e99;
+}
+
+/* Error highlighting */
+.hljs-title.hljs-class,
+.hljs-title.hljs-class .hljs-inherit {
+  color: #e6c384;
+}
+
+/* Line numbers (if using highlight.js with line numbers) */
+.hljs-ln-numbers {
+  color: #727169;
+  border-right: 1px solid #2a2a37;
+  padding-right: 8px;
+  margin-right: 8px;
+}
+
+.hljs-ln-code {
+  padding-left: 8px;
+}
+
+/* Selection */
+.hljs::selection {
+  background: #2d4f67;
+}
+
+.hljs::-moz-selection {
+  background: #2d4f67;
+}

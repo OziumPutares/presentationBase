@@ -1,0 +1,250 @@
+/*
+ * Kanagawa Light theme for Highlight.js
+ * Based on kanagawa.nvim light color scheme
+ * Author: Generated for Kanagawa light theme
+ */
+
+.hljs {
+  color: #545464;
+  background: #fffbf0;
+}
+
+.hljs-subst {
+  color: #545464;
+}
+
+.hljs-comment {
+  color: #a6a69c;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-meta .hljs-keyword,
+.hljs-doctag,
+.hljs-name {
+  color: #624c83;
+  font-weight: bold;
+}
+
+.hljs-type {
+  color: #4d8061;
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: #6f894e;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #8a6914;
+  font-weight: bold;
+}
+
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-operator,
+.hljs-selector-pseudo {
+  color: #4d699b;
+}
+
+.hljs-literal {
+  color: #cc6d00;
+}
+
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+  color: #4d8061;
+}
+
+.hljs-meta {
+  color: #8a6914;
+}
+
+.hljs-meta .hljs-string {
+  color: #6f894e;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* Language-specific highlighting */
+.hljs-function .hljs-title {
+  color: #4d699b;
+}
+
+.hljs-class .hljs-title {
+  color: #8a6914;
+}
+
+.hljs-property {
+  color: #4d699b;
+}
+
+.hljs-params {
+  color: #545464;
+}
+
+.hljs-tag {
+  color: #624c83;
+}
+
+.hljs-tag .hljs-name {
+  color: #624c83;
+}
+
+.hljs-tag .hljs-attr {
+  color: #4d699b;
+}
+
+.hljs-tag .hljs-string {
+  color: #6f894e;
+}
+
+/* JSON */
+.hljs-attr {
+  color: #4d699b;
+}
+
+/* CSS */
+.hljs-selector-class {
+  color: #8a6914;
+}
+
+.hljs-selector-id {
+  color: #cc6d00;
+}
+
+.hljs-built_in {
+  color: #624c83;
+}
+
+/* JavaScript/TypeScript */
+.hljs-keyword.hljs-function {
+  color: #624c83;
+}
+
+.hljs-keyword.hljs-var,
+.hljs-keyword.hljs-let,
+.hljs-keyword.hljs-const {
+  color: #624c83;
+}
+
+/* Python */
+.hljs-decorator {
+  color: #8a6914;
+}
+
+.hljs-built_in.hljs-self {
+  color: #b35b79;
+}
+
+/* Shell/Bash */
+.hljs-variable {
+  color: #4d699b;
+}
+
+/* Markdown */
+.hljs-section {
+  color: #8a6914;
+  font-weight: bold;
+}
+
+.hljs-bullet {
+  color: #4d8061;
+}
+
+.hljs-link {
+  color: #4d699b;
+}
+
+/* Diff */
+.hljs-addition {
+  color: #6f894e;
+  background-color: rgba(111, 137, 78, 0.1);
+}
+
+.hljs-deletion {
+  color: #c84053;
+  background-color: rgba(200, 64, 83, 0.1);
+}
+
+/* Special tokens */
+.hljs-doctag {
+  color: #8a6914;
+  font-weight: bold;
+}
+
+.hljs-formula {
+  color: #b35b79;
+}
+
+/* Error highlighting */
+.hljs-title.hljs-class,
+.hljs-title.hljs-class .hljs-inherit {
+  color: #8a6914;
+}
+
+/* Line numbers (if using highlight.js with line numbers) */
+.hljs-ln-numbers {
+  color: #a6a69c;
+  border-right: 1px solid #e5ddb0;
+  padding-right: 8px;
+  margin-right: 8px;
+}
+
+.hljs-ln-code {
+  padding-left: 8px;
+}
+
+/* Selection */
+.hljs::selection {
+  background: #a8a48d;
+  color: #1f1f28;
+}
+
+.hljs::-moz-selection {
+  background: #a8a48d;
+  color: #1f1f28;
+}
+
+/* Enhanced readability for light theme */
+.hljs {
+  border: 1px solid #e5ddb0;
+  border-radius: 4px;
+}
+
+/* Better contrast for operators and punctuation */
+.hljs-punctuation {
+  color: #727169;
+}
+
+.hljs-bracket {
+  color: #727169;
+}
+
+/* Subtle background for inline code */
+.hljs.inline {
+  background: #e5ddb0;
+  padding: 2px 4px;
+  border-radius: 3px;
+  border: none;
+}
